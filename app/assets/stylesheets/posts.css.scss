@@ -1,0 +1,16 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+textarea {
+  margin-left: 10px;
+  }
+
+#post_text10 {
+  margin-left: 2px;
+  }
+label {
+  padding-right: 5px;
+  }
