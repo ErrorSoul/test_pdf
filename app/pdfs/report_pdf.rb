@@ -61,7 +61,7 @@ class ReportPdf < Prawn::Document
     #pry.binding
     font_size = 1
     lines = 0
-    while ((font_size + 3) * lines) < 570
+    while ((font_size + 3) * lines) < 568
       w = width_of("w", size: font_size)
       chars_in_line = 560 / (w + 0.5 )
       lines = s / chars_in_line
@@ -87,7 +87,7 @@ class ReportPdf < Prawn::Document
         #move_down 3
       else 
         t = line_in_text 
-        pad = 7
+        pad = 6
       end
       move_down t * font_size 
       move_down pad
