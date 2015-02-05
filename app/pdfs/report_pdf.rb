@@ -73,7 +73,7 @@ class ReportPdf < Prawn::Document
   def text_content
     font_size = set_font_size
     w = width_of("w", size: font_size)
-    chars_in_line = @width / w
+    chars_in_line = @width / (w)
     #pry.binding
      move_cursor_to 718
     @arr.each_with_index do |text, ind|
@@ -81,16 +81,22 @@ class ReportPdf < Prawn::Document
         text_box @post[text], size: font_size, character_spacing: 0, width: @width, at: [10, cursor]
       end
       line_in_text = @post[text].length/(chars_in_line )
-      if line_in_text < 1
+      #pry.binding
+      if line_in_text < 2
         t = 2
-        pad = 3
-        #move_down 3
+        move_down t * font_size 
+        move_down 6
+        #@pad = 46
+        #move_down 10
       else 
-        t = line_in_text 
-        pad = 6
+        t = line_in_text
+        move_down t * font_size 
+        move_down 6
+        
+        #@pad = 6
       end
-      move_down t * font_size 
-      move_down pad
+      #move_down t * font_size 
+      #move_down @pad
     end
   end
   
