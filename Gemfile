@@ -52,3 +52,9 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+ #(268..718).step(45).to_a.reverse.each_with_index do |x, ind|
+#      text_box @post['text1'] , size: font_size,
+# :at => [10, x]
+ 
+ 
+#    end

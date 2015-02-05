@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   #respond_to :pdf, only: [:show, :create]
-
+  require 'pry'
   def new
 
     @post = Post.new
