@@ -10,11 +10,11 @@ class ReportPdf < Prawn::Document
     @sum_pad = 45
     
     # raw text height
-    # page size - sum of pad
-    @text_h  = 600 - @sum_pad
+    # raw page size - sum of pad
+    @text_h  = 580 - @sum_pad
 
     # default font size
-    @font_size = 16
+    @font_size = 16 
     
     # max numbers of lines
     # if font size 16
@@ -39,32 +39,56 @@ class ReportPdf < Prawn::Document
     if s_lines < @max_number_of_lines
       return 16
     else
-      return @text_h/s_lines
+      #return @text_h/s_lines
+      return calc_font_size
+      
     end
       
   
   end
   
+
+  def calc_font_size
+    #pry.binding
+    font_size = 1
+    lines = 0
+    while ((font_size + 3) * lines) < 570
+      w = width_of("w", size: font_size)
+      chars_in_line = 560/(w + 0.5 )
+      lines = sum_of_lines/chars_in_line
+        font_size += 1
+      end
+      return font_size
+  end
+    
   def text_content
     font_size = set_font_size
     w = width_of("w", size: font_size)
     chars_in_line = (560 )/w
-    pry.binding
+    #pry.binding
      move_cursor_to 718
     @arr.each_with_index do |text, ind|
       bounding_box([10, cursor], :width => 560) do 
-      text_box @post[text], size: font_size, width: 560, at: [10, cursor]
+      text_box @post[text], size: font_size, character_spacing: 0, width: 560, at: [10, cursor]
       
       
       end
-      line_in_text = @post[text].length/chars_in_line
+      line_in_text = @post[text].length/(chars_in_line )
       if line_in_text < 1
-        t = 1.5
+        t = 2
+       
+        pad = 3
+        #move_down 3
+        
       else 
-        t = line_in_text
+        t = line_in_text 
+        pad = 7
+        
+        
       end
-      move_down t * (font_size + 1)
-      move_down 5
+      move_down t * font_size 
+      move_down pad
+      
     end
    
     
