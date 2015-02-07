@@ -1,0 +1,9 @@
+= form_for(@word, :html => { :multipart => true }) do |f|
+ 
+  = f.fields_for :word_assets do |p|
+    .field
+      = p.label :asset
+      %br
+        = p.file_field :asset
+  .actions
+    = f.submit

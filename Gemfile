@@ -15,9 +15,10 @@ gem 'haml'
 gem 'bootstrap-sass', '3.2.0.2'
 gem 'prawn'
 gem 'pry'
-
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'diffy'
+gem 'yomu'
+gem 'carrierwave', '0.8.0'
+# See https://gigem 'carrierwave', '0.8.0'thub.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
@@ -30,7 +31,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+gem 'spring',         group: :development
 
 
 group :production do

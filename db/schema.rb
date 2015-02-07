@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150204135520) do
+ActiveRecord::Schema.define(version: 20150207174713) do
+
+  create_table "daras", force: true do |t|
+    t.string   "asset"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pharas", force: true do |t|
+    t.string   "avatar"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "word_id"
+  end
+
+  add_index "pharas", ["word_id"], name: "index_pharas_on_word_id"
 
   create_table "posts", force: true do |t|
     t.text     "text1"
@@ -24,6 +39,29 @@ ActiveRecord::Schema.define(version: 20150204135520) do
     t.text     "text8"
     t.text     "text9"
     t.text     "text10"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "word_assets", force: true do |t|
+    t.string   "asset"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "word_id"
+  end
+
+  add_index "word_assets", ["word_id"], name: "index_word_assets_on_word_id"
+
+  create_table "word_attachments", force: true do |t|
+    t.integer  "word_id"
+    t.string   "asset"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "word_attachments", ["word_id"], name: "index_word_attachments_on_word_id"
+
+  create_table "words", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

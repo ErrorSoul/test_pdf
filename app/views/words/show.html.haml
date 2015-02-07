@@ -1,0 +1,19 @@
+
+.container
+  .row
+    .col-md-12
+      %h1= "Результат"
+      - if @output
+        .col-md-9
+          
+            
+          %h4 
+            Файлы
+            %span= @f1 
+            %span и
+            %span= @f2
+            %span отличаются
+          %p= @output.html_safe
+      - else
+        .col-md-9
+        %h4 Файлы не отличаются
